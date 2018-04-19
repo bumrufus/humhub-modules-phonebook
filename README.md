@@ -12,6 +12,7 @@ cleanup the mess :-)
 remove the css ans js from the view files 
 add sort by field option
 load field titles directly from profile fields
-add a admin settings page to allow users to change the displayed fields 
+add a admin settings page to allow users to change the displayed fields and to change the sort order and pagesize
+add pagination option
 
 __Author:__ Samuel Havel @bumrufus
