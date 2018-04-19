@@ -1,24 +1,51 @@
 <?php
 
 
+namespace humhub\modules\phonebook\views\index;
 
+use Yii;
 use yii\helpers\Html;
 use humhub\modules\user\widgets\Image;
 use humhub\modules\user\models\Profile;
 use humhub\modules\user\models\User;
-
+use humhub\modules\directory\widgets\UserGroupList;
 
 
 // Register our module assets, this could also be done within the controller
 \phonebook\humhub\modules\phonebook\assets\Assets::register($this);
 
+    
+$memberListSortField = 'lastname';
+$pageSize = 100;
+$users = User::find()
+                ->addSelect(['*', 'user.*', 'profile.*'])
+                ->joinWith('profile')           
+                ->active()
+                ->limit(100) //how many users should be shown on one page
+                ->all();
+$keyword = Yii::$app->request->get('keyword', "");
+$page = (int) Yii::$app->request->get('page', 1);
+
+$global_number = '+4350148';
+
+$label_field1 = 'Foto';
+$label_field2 = 'Kürzel';
+$label_field3 = 'Name';
+$label_field4 = 'Festnetz';
+$label_field5 = 'Handy';
+$label_field6 = 'E-Mail';
+$label_field7 = 'Position';
+$label_field8 = 'Abteilung';
 
 ?>
 <style>
 tr{border-left:3px solid white}
+table th{font-size:16px;text-align:center;padding-bottom:10px;}
 .tbody:hover {background-color:#f7f7f7;border-left:3px solid #e10000}
 </style>
 <script>
+
+
 function gi(name)
 {
 	return document.getElementById(name);
@@ -124,8 +151,8 @@ function sortTable(n) {
             <div class="col-md-6">
                 <div class="form-group form-group-search">
                     <?= Html::hiddenInput('page', '1'); ?>
+                    <?= Html::textInput("keyword", $keyword, ['id'=>'search', 'onkeyup'=>'filter_table()', 'class' => 'form-control form-search', 'placeholder' => Yii::t('DirectoryModule.base', 'search for members')]); ?>
                     
-                   
                 </div>
 
             </div>
@@ -143,14 +170,14 @@ function sortTable(n) {
 			<tr class="thead" style="vertical-align:middle;text-align:center;" height:40px;">
 				
 				
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="5%" >Foto</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="5%" >Kürzel</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="15%" >Name</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="5%" >Festnetz</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="10%" >Handy</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="15%" >E-Mail</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="20%" >Position</th>
-				<th style="font-size:16px;text-align:center;padding-bottom:10px;" width="15%" >Abteilung</th>
+				<th width="5%" ><?= $label_field1 ?></th>
+				<th width="5%" ><?= $label_field2 ?></th>
+				<th width="15%" ><?= $label_field3 ?></th>
+				<th width="5%" ><?= $label_field4 ?></th>
+				<th width="10%" ><?= $label_field5 ?></th>
+				<th width="15%" ><?= $label_field6 ?></th>
+				<th width="20%" ><?= $label_field7 ?></th>
+				<th width="15%" ><?= $label_field8 ?></th>
 				
 			</tr>
 
@@ -160,21 +187,32 @@ function sortTable(n) {
 <tbody id="table-data">
 
 <?php foreach ($users as $user) : ?>
+<?php $field1 = $user->getProfileImage()->getUrl(); ?>
+<?php $field2 = Html::encode($user->profile->kuerzel); ?>
+<?php $field3 = Html::encode($user->profile->lastname); ?>
+<?php $field4 = Html::encode($user->profile->firstname); ?>
+<?php $field5 = Html::encode($user->profile->festnetz); ?>
+<?php $field6 = Html::encode($user->profile->handy); ?>
+<?php $field7 = Html::encode($user->email); ?>
+<?php $field8 = Html::encode($user->profile->title); ?>
+<?php $field9 = UserGroupList::widget(['user' => $user]); ?>
+
 <tr class="tbody" style="text-align:center;border-top: 1px solid #eee;">
 
-<td style="padding:10px;"><a href="<?php echo $user->getUrl(); ?>">
-                <img src="<?php echo $user->getProfileImage()->getUrl(); ?>" class="img-rounded tt img_margin"
+<td style="padding:10px;">
+<a href="<?php echo $user->getUrl(); ?>">
+<img src="<?= $field1 ?>" class="img-rounded tt img_margin"
                      height="80" width="80" alt="80x80" style="width: 80px; height: 80px; "
                      data-toggle="tooltip" data-placement="top" title=""
-                     data-original-title="<?php echo Html::encode($user->profile->lastname); ?>&nbsp;<?php echo Html::encode($user->profile->firstname); ?>">
+                     data-original-title="<?= $field3 ?>&nbsp;<?= $field4 ?>">
             </a></td>
-<td ><?= Html::encode($user->profile->kuerzel); ?></td>
-<td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="<?= $user->getUrl(); ?>"><?= Html::encode($user->profile->lastname); ?>&nbsp;<?= Html::encode($user->profile->firstname); ?></a></td>
-                       <td><a href="tel:+4350148<?= Html::encode($user->profile->festnetz); ?>"><?= Html::encode($user->profile->festnetz); ?></a></td>
-			<td><a href="tel:+4350148<?= Html::encode($user->profile->handy); ?>"><?= Html::encode($user->profile->handy); ?></a></td>
-			<td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="mailto:<?= Html::encode($user->email); ?>"><?= Html::encode($user->email); ?></a></td>
-			<td><?= Html::encode($user->profile->title); ?></td>
-			<td><?= Html::encode($user->profile->abteilung); ?></td>
+<td ><?= $field2 ?></td>
+<td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="<?= $user->getUrl(); ?>"><?= $field3 ?>&nbsp;<?= $field4 ?></a></td>
+<td><a href="tel:<?= $global_number ?><?= $field5 ?>"><?= $field5 ?></a></td>
+<td><a href="tel:<?= $field6 ?>"><?= $field6 ?></a></td>
+<td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="mailto:<?= $field7 ?>"><?= $field7 ?></a></td>
+<td><?= $field8 ?></td>
+<td><small><?= $field9 ?></small></td>
 </tr>
 <?php endforeach; ?>
 </table>
@@ -183,7 +221,4 @@ function sortTable(n) {
 
 </div>
 
-<div class="pagination-container">
-    <?= \humhub\widgets\LinkPager::widget(['pagination' => $pagination]); ?>
-</div>
 
