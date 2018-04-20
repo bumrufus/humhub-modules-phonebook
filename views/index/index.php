@@ -97,7 +97,7 @@ function filter_table() {
             <div class="col-md-6">
                 <div class="form-group form-group-search">
                     <?= Html::hiddenInput('page', '1'); ?>
-                    <?= Html::textInput("keyword", $keyword, ['id'=>'search', 'onkeyup'=>'filter_table()', 'class' => 'form-control form-search', 'placeholder' => Yii::t('DirectoryModule.base', 'search for members')]); ?>
+                    <?= Html::textInput("keyword", $keyword, ['id'=>'search', 'onkeyup'=>'filter_table()', 'class' => 'form-control form-search']); ?>
                     
                 </div>
 
