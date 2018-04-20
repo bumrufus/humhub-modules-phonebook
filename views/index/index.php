@@ -14,9 +14,9 @@ use humhub\modules\directory\widgets\UserGroupList;
 // Register our module assets, this could also be done within the controller
 \phonebook\humhub\modules\phonebook\assets\Assets::register($this);
 
-    
-$memberListSortField = 'lastname';
-$pageSize = 100;
+//for future features   
+// $memberListSortField = 'lastname';
+// $pageSize = 100;
 $users = User::find()
                 ->addSelect(['*', 'user.*', 'profile.*'])
                 ->joinWith('profile')           
@@ -26,7 +26,7 @@ $users = User::find()
 $keyword = Yii::$app->request->get('keyword', "");
 $page = (int) Yii::$app->request->get('page', 1);
 
-$global_number = '+4350148';
+$global_number = 'companynumber';
 
 $label_field1 = 'Foto';
 $label_field2 = 'Kürzel';
@@ -43,6 +43,7 @@ tr{border-left:3px solid white}
 table th{font-size:16px;text-align:center;padding-bottom:10px;}
 .tbody:hover {background-color:#f7f7f7;border-left:3px solid #e10000}
 </style>
+
 <script>
 
 
@@ -79,62 +80,7 @@ function filter_table() {
   }
 }
 
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = gi("table");
-  switching = true;
-  //Set the sorting direction to ascending:
-  dir = "asc";
-  /*Make a loop that will continue until
-  no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.getElementsByTagName("TR");
-	if(rows.length > 300) return;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      /*check if the two rows should switch place,
-      based on the direction, asc or desc:*/
-      if (dir == "asc") {
-        if (x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch= true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.textContent.toLowerCase() < y.textContent.toLowerCase()) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch= true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      //Each time a switch is done, increase this count by 1:
-      switchcount ++;
-    } else {
-      /*If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again.*/
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
-// JavaScript Document
+
 </script>
 
 
@@ -172,12 +118,12 @@ function sortTable(n) {
 				
 				<th width="5%" ><?= $label_field1 ?></th>
 				<th width="5%" ><?= $label_field2 ?></th>
-				<th width="15%" ><?= $label_field3 ?></th>
+				<th width="15%"><?= $label_field3 ?></th>
 				<th width="5%" ><?= $label_field4 ?></th>
-				<th width="10%" ><?= $label_field5 ?></th>
-				<th width="15%" ><?= $label_field6 ?></th>
-				<th width="20%" ><?= $label_field7 ?></th>
-				<th width="15%" ><?= $label_field8 ?></th>
+				<th width="10%"><?= $label_field5 ?></th>
+				<th width="15%"><?= $label_field6 ?></th>
+				<th width="20%"><?= $label_field7 ?></th>
+				<th width="15%"><?= $label_field8 ?></th>
 				
 			</tr>
 
