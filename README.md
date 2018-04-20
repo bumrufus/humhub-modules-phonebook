@@ -8,7 +8,7 @@ https://github.com/bumrufus/humhub-modules-phonebook/blob/master/views/index/ind
 
 Sorry if it's not perfectly developed, but this is my first module :-)
 
-#TODOS:
+# TODOS:
 
 - cleanup the mess :-)
 - remove the css ans js from the view files 
