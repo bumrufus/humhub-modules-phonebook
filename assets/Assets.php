@@ -29,5 +29,7 @@ class Assets extends AssetBundle
     public $js = [
         'js/humhub.phonebook.js'
     ];
-
+    public $css = [
+        'css/humhub.phonebook.css'
+    ];
 }
