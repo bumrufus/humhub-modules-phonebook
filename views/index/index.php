@@ -111,6 +111,7 @@ function filter_table() {
 
   
 <br>
+	<div class="table-responsive">
 <table id="table" class="main-table">
 <thead>
 			<tr class="thead" style="vertical-align:middle;text-align:center;" height:40px;">
@@ -161,7 +162,7 @@ function filter_table() {
 <td><small><?= $field9 ?></small></td>
 </tr>
 <?php endforeach; ?>
-</table>
+</table> </div>
 <hr>
 
 
