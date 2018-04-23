@@ -14,9 +14,9 @@ use humhub\modules\directory\widgets\UserGroupList;
 // Register our module assets, this could also be done within the controller
 \phonebook\humhub\modules\phonebook\assets\Assets::register($this);
 
-//for future features   
-// $memberListSortField = 'lastname';
-// $pageSize = 100;
+    
+  
+
 $users = User::find()
                 ->addSelect(['*', 'user.*', 'profile.*'])
                 ->joinWith('profile')           
@@ -26,7 +26,7 @@ $users = User::find()
 $keyword = Yii::$app->request->get('keyword', "");
 $page = (int) Yii::$app->request->get('page', 1);
 
-$global_number = 'companynumber';
+$global_number = '+4350148';
 
 $label_field1 = 'Foto';
 $label_field2 = 'Kürzel';
@@ -37,15 +37,17 @@ $label_field6 = 'E-Mail';
 $label_field7 = 'Position';
 $label_field8 = 'Abteilung';
 
+
+
+
 ?>
 
 
 
 
 
-<div class="panel panel-default">
 
-    
+    <div class="panel panel-default">
 
     <div class="panel-body">
 <br>
@@ -65,24 +67,23 @@ $label_field8 = 'Abteilung';
         <?= Html::endForm(); ?>
 
        
-    </div>
+    
 
   
 <br>
-	<div class="table-responsive">
+<div class="table-responsive">
 <table id="table" class="main-table">
 <thead>
 			<tr class="thead" style="vertical-align:middle;text-align:center;" height:40px;">
 				
-				
 				<th width="5%" ><?= $label_field1 ?></th>
 				<th width="5%" ><?= $label_field2 ?></th>
-				<th width="15%"><?= $label_field3 ?></th>
+				<th width="15%" ><?= $label_field3 ?></th>
 				<th width="5%" ><?= $label_field4 ?></th>
-				<th width="10%"><?= $label_field5 ?></th>
-				<th width="15%"><?= $label_field6 ?></th>
-				<th width="20%"><?= $label_field7 ?></th>
-				<th width="15%"><?= $label_field8 ?></th>
+				<th width="15%" ><?= $label_field5 ?></th>
+				<th width="15%" ><?= $label_field6 ?></th>
+				<th width="15%" ><?= $label_field7 ?></th>
+				<th width="15%" ><?= $label_field8 ?></th>
 				
 			</tr>
 
@@ -111,19 +112,23 @@ $label_field8 = 'Abteilung';
                      data-toggle="tooltip" data-placement="top" title=""
                      data-original-title="<?= $field3 ?>&nbsp;<?= $field4 ?>">
             </a></td>
-<td ><?= $field2 ?></td>
-<td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="<?= $user->getUrl(); ?>"><?= $field3 ?>&nbsp;<?= $field4 ?></a></td>
+<td><?= $field2 ?></td>
+<td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="<?= $user->getUrl(); ?>"><?= $field3 ?>&nbsp;<?= $field4 ?><a/></td>
 <td><a href="tel:<?= $global_number ?><?= $field5 ?>"><?= $field5 ?></a></td>
 <td><a href="tel:<?= $field6 ?>"><?= $field6 ?></a></td>
 <td><a style="color: #e10000;font-weight: 700;font-size: 13px;text-decoration: underline;" href="mailto:<?= $field7 ?>"><?= $field7 ?></a></td>
 <td><?= $field8 ?></td>
-<td><small><?= $field9 ?></small></td>
+<td><?= $field9 ?></td>
 </tr>
 <?php endforeach; ?>
-</table> </div>
-<hr>
+</table>
+</div>
 
 
 </div>
+</div>
+
+
+ 
 
 
