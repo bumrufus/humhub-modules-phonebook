@@ -26,7 +26,7 @@ $users = User::find()
 $keyword = Yii::$app->request->get('keyword', "");
 $page = (int) Yii::$app->request->get('page', 1);
 
-$global_number = '+4350148'; //change this to your needs
+$global_number = '+43xxx'; //change this to your needs
 
 $label_field1 = 'Foto'; //change this to your needs
 $label_field2 = 'Kürzel'; //change this to your needs
