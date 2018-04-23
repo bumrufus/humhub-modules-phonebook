@@ -37,7 +37,7 @@ $label_field6 = 'E-Mail'; //change this to your needs
 $label_field7 = 'Position'; //change this to your needs
 $label_field8 = 'Abteilung'; //change this to your needs
 
-//also change the label_fields, i want to improve this later!
+//also change the variables = $field1 - $field9, i want to improve that later
 
 
 ?>
