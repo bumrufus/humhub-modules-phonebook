@@ -2,7 +2,7 @@
     "id": "phonebook",
     "name": "Phonebook",
     "description": "A simple phonebook with Ajax Search",
-    "keywords": [
+    "keywords": [phonebook, address book
     ],
     "version": "0.1",
     "humhub": {
