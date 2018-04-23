@@ -26,18 +26,18 @@ $users = User::find()
 $keyword = Yii::$app->request->get('keyword', "");
 $page = (int) Yii::$app->request->get('page', 1);
 
-$global_number = '+4350148';
+$global_number = '+4350148'; //change this to your needs
 
-$label_field1 = 'Foto';
-$label_field2 = 'Kürzel';
-$label_field3 = 'Name';
-$label_field4 = 'Festnetz';
-$label_field5 = 'Handy';
-$label_field6 = 'E-Mail';
-$label_field7 = 'Position';
-$label_field8 = 'Abteilung';
+$label_field1 = 'Foto'; //change this to your needs
+$label_field2 = 'Kürzel'; //change this to your needs
+$label_field3 = 'Name'; //change this to your needs
+$label_field4 = 'Festnetz'; //change this to your needs
+$label_field5 = 'Handy'; //change this to your needs
+$label_field6 = 'E-Mail'; //change this to your needs
+$label_field7 = 'Position'; //change this to your needs
+$label_field8 = 'Abteilung'; //change this to your needs
 
-
+//also change the label_fields, i want to improve this later!
 
 
 ?>
