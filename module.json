@@ -8,5 +8,5 @@
     "humhub": {
         "minVersion": "1.2"
     },
-    "screenshots": ["assets/screen1.jpg"]
+    "screenshots": ["assets/screen1.jpg","assets/screen2.jpg" ]
 }
