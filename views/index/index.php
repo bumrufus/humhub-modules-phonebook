@@ -58,7 +58,7 @@ $label_field8 = 'Abteilung'; //change this to your needs
             <div class="col-md-6">
                 <div class="form-group form-group-search">
                    
-                  <input type="text" id="search" class="form-control form-search" value="" onkeyup="filter_table()">       
+                  <input type="text" id="search" class="form-control form-search" value="" onkeyup="filter_table()" autocomplete="off">       
                     
                 </div>
 
