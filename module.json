@@ -4,7 +4,7 @@
     "description": "A simple phonebook with Ajax Search",
     "keywords": ["phonebook", "address book"
     ],
-    "version": "0.1",
+    "version": "0.1.3",
     "humhub": {
         "minVersion": "1.2"
     },
