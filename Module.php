@@ -24,7 +24,12 @@ class Module extends \humhub\components\Module
         // Cleanup all module data, don't remove the parent::disable()!!!
         parent::disable();
     }
-
+    public function getImage ( )
+   	{
+		 $url = $this->getPublishedUrl('/module_image.png');
+		return $url;
+		
+   	}
 }
 
 
