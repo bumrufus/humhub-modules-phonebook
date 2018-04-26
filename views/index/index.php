@@ -19,7 +19,8 @@ use humhub\modules\directory\widgets\UserGroupList;
 
 $users = User::find()
                 ->addSelect(['*', 'user.*', 'profile.*'])
-                ->joinWith('profile')           
+                ->joinWith('profile')   
+		->addOrderBy(['lastname' => SORT_ASC]) //sort by field
                 ->active()
                 ->limit(100) //how many users should be shown on one page
                 ->all();
