@@ -25,7 +25,7 @@ $users = User::find()
                 ->limit(100) //how many users should be shown on one page
                 ->all();
 $keyword = Yii::$app->request->get('keyword', "");
-$page = (int) Yii::$app->request->get('page', 1);
+
 
 $global_number = '+43xxx'; //change this to your needs
 
@@ -57,7 +57,7 @@ $label_field8 = 'Abteilung'; //change this to your needs
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="form-group form-group-search">
-                    <?= Html::hiddenInput('page', '1'); ?>
+                   
                     <?= Html::textInput("keyword", $keyword, ['id'=>'search', 'onkeyup'=>'filter_table()', 'class' => 'form-control form-search']); ?>
                     
                 </div>
