@@ -30,17 +30,18 @@ class Events extends \yii\base\Object
      *
      * @param $event
      */
-    public static function onAdminMenuInit($event)
-    {
-        $event->sender->addItem(array(
-            'label' => Yii::t('PhonebookModule.base', 'Phonebook'),
-            'url' => Url::to(['/phonebook/admin']),
-            'group' => 'manage',
-            'icon' => '<i class="fa fa-phone"></i>',
-            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'phonebook' && Yii::$app->controller->id == 'admin'),
-            'sortOrder' => 99999,
-        ));
-    }
+//   public static function onAdminMenuInit($event)
+//    {
+//        $event->sender->addItem(array(
+//            'label' => Yii::t('PhonebookModule.base', 'Phonebook'),
+//            'url' => Url::to(['/phonebook/admin']),
+//            'group' => 'manage',
+//            'icon' => '<i class="fa fa-phone"></i>',
+//            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'phonebook' && Yii::$app->controller->id == 'admin'),
+//            'sortOrder' => 99999,
+//        ));
+//    }
+
 
 }
 

@@ -10,15 +10,17 @@ return [
 			'event' => \humhub\widgets\TopMenu::EVENT_INIT,
 			'callback' => ['phonebook\humhub\modules\phonebook\Events', 'onTopMenuInit'],
 		],
-		[
-			'class' => humhub\modules\admin\widgets\AdminMenu::class,
-			'event' => humhub\modules\admin\widgets\AdminMenu::EVENT_INIT,
-			'callback' => ['phonebook\humhub\modules\phonebook\Events', 'onAdminMenuInit']
-		],
+//		[
+//			'class' => humhub\modules\admin\widgets\AdminMenu::class,
+//			'event' => humhub\modules\admin\widgets\AdminMenu::EVENT_INIT,
+//			'callback' => ['phonebook\humhub\modules\phonebook\Events', 'onAdminMenuInit']
+//		],
 	],
 	'urlManagerRules' => [
 		'telefonliste' => 'phonebook/index'
 		 ]
+
 ];
+ 
 ?>
 
