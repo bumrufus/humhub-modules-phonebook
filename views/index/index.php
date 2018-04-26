@@ -24,7 +24,7 @@ $users = User::find()
                 ->active()
                 ->limit(100) //how many users should be shown on one page
                 ->all();
-$keyword = Yii::$app->request->get('keyword', "");
+
 
 
 $global_number = '+43xxx'; //change this to your needs
