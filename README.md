@@ -3,7 +3,11 @@
 
 Based on the core module directory
 
-I've developed it for my personal use. First u have to change the fields displayed in the list -> u have to change it here:
+A simple phonebook with Ajax Search
+
+I've developed it for my personal use. 
+
+First u have to change the fields displayed in the list -> u have to change it here:
 https://github.com/bumrufus/humhub-modules-phonebook/blob/5cb48cfb1735451b1bff7b203169581e5cb2ffd3/views/index/index.php#L31-L38
 
 and here:
