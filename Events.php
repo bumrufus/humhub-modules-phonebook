@@ -16,7 +16,7 @@ class Events extends \yii\base\Object
     public static function onTopMenuInit($event)
     {
         $event->sender->addItem([
-            'label' => "Phonebook",
+            'label' => Yii::t('PhonebookModule.base', 'Phonebook'),
             'icon' => '<i class="fa fa-phone"></i>',
             'url' => Url::to(['/phonebook/index']),
             'sortOrder' => 99999,
@@ -33,7 +33,7 @@ class Events extends \yii\base\Object
     public static function onAdminMenuInit($event)
     {
         $event->sender->addItem(array(
-            'label' => "Phonebook",
+            'label' => Yii::t('PhonebookModule.base', 'Phonebook'),
             'url' => Url::to(['/phonebook/admin']),
             'group' => 'manage',
             'icon' => '<i class="fa fa-phone"></i>',
