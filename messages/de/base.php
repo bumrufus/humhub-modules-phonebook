@@ -18,5 +18,9 @@
  */
 return [
     'Phonebook' => 'Telefonliste',
+    '<strong>Phonebook</strong> configuration' => '<strong>Telefonlisten</strong> konfiguration',
+	'Welcome to the admin area. I want to add some settings, but i need more time!' => 'Willkommen im Admin Bereich. Ich möchte hier noch Einstellungesmöglichkeiten hinzufügen, jedoch benötige ich noch mehr Zeit!',
+	'A simple phonebook with Ajax Search' => 'Eine einfache Telefonliste mit Ajax Suche',
+	
     
 ];
