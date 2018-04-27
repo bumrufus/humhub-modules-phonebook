@@ -30,6 +30,14 @@ class Module extends \humhub\components\Module
 		return $url;
 		
    	}
+    public function getName()
+    {
+        return Yii::t('PhonebookModule.base', 'Phonebook');
+    }
+    public function getDescription()
+    {
+        return Yii::t('PhonebookModule.base', 'A simple phonebook with Ajax Search');
+    }
 }
 
 
