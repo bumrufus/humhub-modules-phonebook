@@ -75,7 +75,7 @@ $label_field8 = 'Abteilung'; //change this to your needs
 <div class="table-responsive">
 <table id="table" class="main-table">
 <thead>
-			<tr class="thead" style="vertical-align:middle;text-align:center;" height:40px;">
+			<tr class="thead">
 				
 				<th width="5%" ><?= $label_field1 ?></th>
 				<th width="5%" ><?= $label_field2 ?></th>
