@@ -1,6 +1,5 @@
 <?php
 
-
 namespace humhub\modules\phonebook\views\index;
 
 use Yii;
@@ -10,21 +9,18 @@ use humhub\modules\user\models\Profile;
 use humhub\modules\user\models\User;
 use humhub\modules\directory\widgets\UserGroupList;
 
-
 // Register our module assets, this could also be done within the controller
 \phonebook\humhub\modules\phonebook\assets\Assets::register($this);
 
-    
-  
-
-$users = User::find()
+$users = Yii::$app->cache->getOrSet('phonebook', function () {
+    return User::find()
                 ->addSelect(['*', 'user.*', 'profile.*'])
                 ->joinWith('profile')   
 		->addOrderBy(['lastname' => SORT_ASC]) //sort by field
                 ->active()
                 ->limit(100) //how many users should be shown on one page
                 ->all();
-
+}, Yii::$app->settings->get('cache.expireTime'));
 
 
 $global_number = '+43xxx'; //change this to your needs
@@ -40,14 +36,7 @@ $label_field8 = 'Abteilung'; //change this to your needs
 
 //also change the variables = $field1 - $field9, i want to improve that later
 
-
 ?>
-
-
-
-
-
-
     <div class="panel panel-default">
 
     <div class="panel-body">
@@ -67,10 +56,6 @@ $label_field8 = 'Abteilung'; //change this to your needs
         </div>
         <?= Html::endForm(); ?>
 
-       
-    
-
-  
 <br>
 <div class="table-responsive">
 <table id="table" class="main-table">
@@ -124,12 +109,5 @@ $label_field8 = 'Abteilung'; //change this to your needs
 <?php endforeach; ?>
 </table>
 </div>
-
-
 </div>
 </div>
-
-
- 
-
-
