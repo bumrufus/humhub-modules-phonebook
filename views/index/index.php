@@ -10,7 +10,7 @@ use humhub\modules\user\models\User;
 use humhub\modules\directory\widgets\UserGroupList;
 
 // Register our module assets, this could also be done within the controller
-\phonebook\humhub\modules\phonebook\assets\Assets::register($this);
+humhub\modules\phonebook\assets\Assets::register($this);
 
 $users = Yii::$app->cache->getOrSet('phonebook', function () {
     return User::find()
