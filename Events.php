@@ -4,7 +4,7 @@ namespace humhub\modules\phonebook;
 
 use Yii;
 use yii\helpers\Url;
-use yii\base\BaseObject
+use yii\base\BaseObject;
 
 class Events extends BaseObject
 {
