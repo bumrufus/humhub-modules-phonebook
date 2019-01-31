@@ -18,8 +18,9 @@ class Events extends BaseObject
     {
         $event->sender->addItem([
             'label' => Yii::t('PhonebookModule.base', 'Phonebook'),
+            'id' => 'phonebook',
             'icon' => '<i class="fa fa-phone"></i>',
-            'url' => Url::to(['/phonebook/index']),
+            'url' => Url::toRoute('/phonebook/index'),
             'sortOrder' => 99999,
             'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'phonebook' && Yii::$app->controller->id == 'index'),
         ]);
