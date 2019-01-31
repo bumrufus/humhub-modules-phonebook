@@ -1,6 +1,6 @@
 <?php
 
-namespace phonebook\humhub\modules\phonebook;
+namespace humhub\modules\phonebook;
 
 use Yii;
 use yii\helpers\Url;
