@@ -1,6 +1,6 @@
 <?php
 
-namespace  phonebook\humhub\modules\phonebook\assets;
+namespace  humhub\modules\phonebook\assets;
 
 use yii\web\AssetBundle;
 
