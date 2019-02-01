@@ -10,11 +10,11 @@ I've developed it for my personal use.
 
 First u have to change the fields displayed in the list -> u have to change it here:
 
-https://github.com/bumrufus/humhub-modules-phonebook/blob/4fce228ee2cdad174a638a67a59de72b2aacb8e5/views/index/index.php#L30-L41
+https://github.com/bumrufus/humhub-modules-phonebook/blob/ec6ecccb90f2fec0f7ed8465e4100ee56cc9c1fa/views/index/index.php#L26-L35
 
 and here:
 
-https://github.com/bumrufus/humhub-modules-phonebook/blob/4fce228ee2cdad174a638a67a59de72b2aacb8e5/views/index/index.php#L97-L105
+https://github.com/bumrufus/humhub-modules-phonebook/blob/ec6ecccb90f2fec0f7ed8465e4100ee56cc9c1fa/views/index/index.php#L82-L90
 
 The fields are located here: Administration -> Users -> Profiles -> select a Profile -> Internal Name
 
